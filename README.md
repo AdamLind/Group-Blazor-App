@@ -42,13 +42,3 @@
 * Upcoming View: List of upcoming doses.
 * Optional: Email or local browser notifications (stretch goal).
 * Deployment: Azure App Service.
-
-### 5. Household Inventory Tracker
-* Target Audience: People tracking household items (groceries, supplies, etc.).
-
-#### Features
-* Authentication: Personal login for inventory.
-* CRUD: Add, edit, delete, view items (name, quantity, category).
-* Filters: Show low-stock items.
-* Optional: Export list to CSV.
-* Deployment: Azure.
