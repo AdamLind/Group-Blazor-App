@@ -1,10 +1,10 @@
 # Group-Blazor-App
 
-### Team Members
+## Team Members
 * Adam Lind
 
-### Project Ideas
-1. Personal Task Organizer
+## Project Ideas
+### 1. Personal Task Organizer
 * Target Audience: Individuals who want to track daily tasks.
 
 #### Features
@@ -14,7 +14,7 @@
 * UI: Show tasks in a simple list with filters (completed vs. active).
 * Deployment: Azure App Service with local or cloud SQL database.
 
-2. Recipe Collection App
+### 2. Recipe Collection App
 * Target Audience: Home cooks or food enthusiasts.
 
 #### Features
@@ -24,7 +24,7 @@
 * Search: Filter recipes by keyword or category.
 * Deployment: Host on Azure.
 
-3. Book Reading Tracker
+### 3. Book Reading Tracker
 * Target Audience: Readers who want to log books they’ve read or plan to read.
 
 #### Features
@@ -33,7 +33,7 @@
 * Reports: Simple chart — books read per month or rating distribution.
 * UI: Minimal — list view with filters by status.
 
-4. Medication Reminder App (Web-based)
+### 4. Medication Reminder App (Web-based)
 * Target Audience: Individuals who need to track medications.
 
 #### Features
@@ -43,7 +43,7 @@
 * Optional: Email or local browser notifications (stretch goal).
 * Deployment: Azure App Service.
 
-5. Household Inventory Tracker
+### 5. Household Inventory Tracker
 * Target Audience: People tracking household items (groceries, supplies, etc.).
 
 #### Features
