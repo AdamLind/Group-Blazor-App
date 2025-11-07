@@ -1,4 +1,4 @@
 # Group-Blazor-App
 
-# Team Members
+### Team Members
 * Adam Lind
