@@ -28,6 +28,18 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/Views/Dashboard/BookList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0Jvb2tMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/Views/Dashboard/Reading.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL1JlYWRpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/Views/HelloWorld/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGVsbG9Xb3JsZC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
