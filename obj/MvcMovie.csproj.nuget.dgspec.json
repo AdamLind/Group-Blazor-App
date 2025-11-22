@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adams\\OneDrive\\Desktop\\Homework\\Group-Blazor-App\\MvcMovie.csproj": {}
+    "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/MvcMovie.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adams\\OneDrive\\Desktop\\Homework\\Group-Blazor-App\\MvcMovie.csproj": {
+    "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/MvcMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adams\\OneDrive\\Desktop\\Homework\\Group-Blazor-App\\MvcMovie.csproj",
+        "projectUniqueName": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/MvcMovie.csproj",
         "projectName": "MvcMovie",
-        "projectPath": "C:\\Users\\adams\\OneDrive\\Desktop\\Homework\\Group-Blazor-App\\MvcMovie.csproj",
-        "packagesPath": "C:\\Users\\adams\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adams\\OneDrive\\Desktop\\Homework\\Group-Blazor-App\\obj\\",
+        "projectPath": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/MvcMovie.csproj",
+        "packagesPath": "/Users/terencedreicoborjal/.nuget/packages/",
+        "outputPath": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\adams\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/terencedreicoborjal/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -80,24 +80,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.22, 8.0.22]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -106,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
