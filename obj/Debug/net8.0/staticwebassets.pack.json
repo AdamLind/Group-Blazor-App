@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/MvcMovie.xr3ptmw21w.bundle.scp.css"
     },
     {
+      "Id": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/wwwroot/css/dashboard.css",
+      "PackagePath": "staticwebassets/css/dashboard.css"
+    },
+    {
       "Id": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

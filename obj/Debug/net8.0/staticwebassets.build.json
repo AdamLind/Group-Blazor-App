@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "m5cbqKJYI05FWDnEDcKS3urK+d9aC6CgccjQS4qlIDQ=",
+  "Hash": "KRoc8OEsVQcaegs7MpaYglGphX13u0gUqWhiIMG47O0=",
   "Source": "MvcMovie",
   "BasePath": "_content/MvcMovie",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/obj/Debug/net8.0/scopedcss/projectbundle/MvcMovie.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/wwwroot/css/dashboard.css",
+      "SourceId": "MvcMovie",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/wwwroot/",
+      "BasePath": "_content/MvcMovie",
+      "RelativePath": "css/dashboard#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4mla6ksr1h",
+      "Integrity": "FF5OUIE61hSZ5WeP0pHHqdyHDnTLKUQTwHgS5d4hPW8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/dashboard.css"
     },
     {
       "Identity": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/wwwroot/css/site.css",
@@ -1320,6 +1341,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "css/dashboard.4mla6ksr1h.css",
+      "AssetFile": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/wwwroot/css/dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "676"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FF5OUIE61hSZ5WeP0pHHqdyHDnTLKUQTwHgS5d4hPW8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Nov 2025 11:39:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4mla6ksr1h"
+        },
+        {
+          "Name": "label",
+          "Value": "css/dashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FF5OUIE61hSZ5WeP0pHHqdyHDnTLKUQTwHgS5d4hPW8="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.css",
+      "AssetFile": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/wwwroot/css/dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "676"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FF5OUIE61hSZ5WeP0pHHqdyHDnTLKUQTwHgS5d4hPW8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Nov 2025 11:39:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FF5OUIE61hSZ5WeP0pHHqdyHDnTLKUQTwHgS5d4hPW8="
+        }
+      ]
+    },
     {
       "Route": "css/site.bt14jpl08e.css",
       "AssetFile": "/Users/terencedreicoborjal/Downloads/Group-blazor-app/Group-Blazor-App/wwwroot/css/site.css",

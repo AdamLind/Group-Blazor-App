@@ -6,36 +6,51 @@
     <title>@ViewData["Title"] - Lind Movies</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        .side-nav {
+            min-height: 100vh;
+            background: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            padding-top: 2rem;
+        }
+        .side-nav .nav-link {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .side-nav .nav-link.active, .side-nav .nav-link:hover {
+            background: #e9ecef;
+            border-radius: 0.25rem;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Index">Movie App</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block side-nav">
+                <div class="position-sticky">
+                    <a class="navbar-brand mb-4 d-block" asp-area="" asp-controller="Movies" asp-action="Index">Blazing Books</a>
+                    <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Movies" asp-action="Index">Movies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            </nav>
+            <main class="col-md-10 ms-sm-auto main-content">
+                @RenderBody()
+            </main>
+        </div>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted mt-4">
         <div class="container">
             &copy; 2023 - Movie App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
