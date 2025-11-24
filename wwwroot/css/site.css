@@ -89,22 +89,19 @@ body {
     color: white;
 }
 
+/* To Read (gray) */
 .status-toread {
     background-color: #777;
 }
 
+/* Reading = GOLD*/
 .status-reading {
-    background-color: var(--secondary);
+    background-color: var(--accent); /* gold */
+    color: #000; /* readable on gold */
 }
 
+/* Completed = GREEN */
 .status-completed {
-    background-color: var(--accent);
-    color: #000;
-}
-
-/* Action Buttons (Rectangular) */
-.btn-action {
-    border-radius: 6px !important;
-    font-size: 0.85rem;
-    padding: 4px 10px;
+    background-color: var(--secondary); /* moody green */
+    color: #fff;
 }
