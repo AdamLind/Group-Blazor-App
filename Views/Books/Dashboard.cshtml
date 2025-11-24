@@ -1,0 +1,93 @@
+@model MvcMovie.Models.ReadingDashboardViewModel
+
+@{
+    ViewData["Title"] = "Reading Dashboard";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="mb-0">Reading Dashboard</h1>
+        <p class="text-muted mb-0">Overview of your reading progress</p>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">Back to Books</a>
+    </div>
+</div>
+
+@if (Model.TotalBooks == 0)
+{
+    <div class="card-like">
+        <p class="mb-0 text-muted">No books tracked yet.</p>
+    </div>
+}
+else
+{
+    <div class="row g-3 mb-4">
+        <div class="col-md-3"><div class="card-like"><h5>Total Books</h5><p class="fs-4 mb-0">@Model.TotalBooks</p></div></div>
+        <div class="col-md-3"><div class="card-like"><h5>To Read</h5><p class="fs-4 mb-0">@Model.ToReadCount</p></div></div>
+        <div class="col-md-3"><div class="card-like"><h5>Reading</h5><p class="fs-4 mb-0">@Model.ReadingCount</p></div></div>
+        <div class="col-md-3"><div class="card-like"><h5>Completed</h5><p class="fs-4 mb-0">@Model.CompletedCount</p></div></div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <div class="card-like">
+                <h5 class="mb-1">Overall Completion</h5>
+                <p class="fs-4 mb-1">@Model.OverallCompletionPercent %</p>
+                <p class="text-muted mb-0">@Model.TotalPagesRead of @Model.TotalPagesPlanned pages read</p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-like">
+                <h5 class="mb-1">Average Progress (Reading)</h5>
+                <p class="fs-4 mb-0">@Model.AverageReadingCompletionPercent %</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-like">
+        <h4 class="mb-3">Currently Reading</h4>
+
+        @if (!Model.CurrentlyReading.Any())
+        {
+            <p class="text-muted mb-0">You’re not reading anything right now.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Progress</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var book in Model.CurrentlyReading)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.CompletionPercent % 
+                            <span class="text-muted">(@book.CurrentPage / @book.TotalPages)</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-@book.Status.Replace(" ", "").ToLower()">
+                                @book.Status
+                            </span>
+                        </td>
+                        <td class="text-end">
+                            <a asp-action="Edit" asp-route-id="@book.Id"
+                               class="btn btn-sm btn-outline-primary btn-action">Update</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    </div>
+}
+    
