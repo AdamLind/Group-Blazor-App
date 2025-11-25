@@ -1,4 +1,4 @@
-html {
+/* html {
   font-size: 14px;
 }
 
@@ -31,4 +31,77 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+ */
+
+:root {
+    --primary: #1F3557;
+    --secondary: #3E6B48;
+    --accent: #E0A35D;
+    --bg: #F7F7F5;
+    --surface: #FFFFFF;
+    --text: #1A1A1A;
+    --text-muted: #5A5A5A;
+}
+
+/* Global */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary) !important;
+}
+
+.navbar-brand,
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--accent) !important;
+}
+
+/* Cards */
+.card-like {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Table Hover Highlight */
+.table-hover tbody tr:hover {
+    background-color: rgba(31, 53, 87, 0.06);
+}
+
+/* Status Badges (Pills) */
+.status-badge {
+    padding: 4px 10px;
+    font-size: 0.875rem;
+    border-radius: 999px;
+    font-weight: 600;
+    color: white;
+}
+
+/* To Read (gray) */
+.status-toread {
+    background-color: #777;
+}
+
+/* Reading = GOLD*/
+.status-reading {
+    background-color: var(--accent); /* gold */
+    color: #000; /* readable on gold */
+}
+
+/* Completed = GREEN */
+.status-completed {
+    background-color: var(--secondary); /* moody green */
+    color: #fff;
 }

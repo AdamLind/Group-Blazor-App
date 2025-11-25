@@ -9,11 +9,11 @@ public class BookFilterViewModel
 
     public SelectList? Genres { get; set; }
     public SelectList? Authors { get; set; }
+    public SelectList? Statuses { get; set; }  
 
     public string? SelectedGenre { get; set; }
     public string? SelectedAuthor { get; set; }
+    public string? SelectedStatus { get; set; }
     public int? ReleaseYear { get; set; }
-
-    // optional: keep title search like movies
     public string? TitleSearch { get; set; }
 }
