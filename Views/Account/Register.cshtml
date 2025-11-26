@@ -1,0 +1,61 @@
+@model YourProjectName.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-5 col-lg-4">
+
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Create Account</h2>
+            <p class="text-muted">Join us and start tracking your reading today.</p>
+        </div>
+
+        <div class="card login-card shadow-lg p-4 bg-white">
+            <div class="card-body">
+
+                <form asp-controller="Account" asp-action="Register" method="post">
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Username" class="form-control" placeholder="Username" />
+                        <label asp-for="Username" class="text-secondary">Username</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" type="email" class="form-control" placeholder="name@example.com" />
+                        <label asp-for="Email" class="text-secondary">Email</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                        <label asp-for="Password" class="text-secondary">Password</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
+                        <label asp-for="ConfirmPassword" class="text-secondary">Confirm Password</label>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-login shadow-sm">
+                            Create Account
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <p class="text-muted small">
+                Already have an account?
+                <a asp-controller="Account" asp-action="Login" class="fw-bold text-decoration-none">Sign in</a>
+            </p>
+        </div>
+
+    </div>
+</div>
