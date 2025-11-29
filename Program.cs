@@ -1,13 +1,13 @@
 
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MVCBookContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MVCBookContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcMovieContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -40,6 +40,10 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    BookSeedData.Initialize(services);
+}
 
 app.Run();
