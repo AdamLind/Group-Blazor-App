@@ -1,3 +1,4 @@
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MvcMovie.Data;
@@ -5,8 +6,8 @@ using MvcMovie.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<MvcMovieContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("MvcMovieContext")));
+builder.Services.AddDbContext<MVCBookContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MVCBookContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -17,7 +18,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    SeedData.Initialize(services);
+    // SeedData.Initialize(services); // Disabled seeding
 }
 
 // Configure the HTTP request pipeline.
@@ -39,10 +40,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    BookSeedData.Initialize(services);
-}
+
 
 app.Run();

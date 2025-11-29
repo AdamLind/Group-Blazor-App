@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+/* using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MvcMovie.Data;
 using System;
@@ -10,9 +10,9 @@ public static class SeedData
 {
     public static void Initialize(IServiceProvider serviceProvider)
     {
-        using (var context = new MvcMovieContext(
+        using (var context = new MVCBookContext(
             serviceProvider.GetRequiredService<
-                DbContextOptions<MvcMovieContext>>()))
+                DbContextOptions<MVCBookContext>>()))
         {
             // Look for any movies.
             if (context.Movie.Any())
@@ -81,3 +81,5 @@ public static class SeedData
         }
     }
 }
+
+*/
