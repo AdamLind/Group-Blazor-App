@@ -41,7 +41,7 @@ body {
     --bg: #F7F7F5;
     --surface: #FFFFFF;
     --text: #1A1A1A;
-    --text-muted: #5A5A5A;
+    --text-muted: #333;
 }
 
 /* Global */
@@ -91,7 +91,7 @@ body {
 
 /* To Read (gray) */
 .status-toread {
-    background-color: #777;
+    background-color: #444;
 }
 
 /* Reading = GOLD*/
@@ -104,4 +104,79 @@ body {
 .status-completed {
     background-color: var(--secondary); /* moody green */
     color: #fff;
+}
+
+/* Override Bootstrap primary button color to use your theme */
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--accent) !important; /* gold hover */
+    border-color: var(--accent) !important;
+    color: #000 !important; /* readable on gold */
+}
+
+/* Outline to match your system */
+.btn-outline-primary {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: #000 !important;
+}
+
+/* Edit button  solid primary */
+.btn-outline-primary.btn-action {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+}
+
+.btn-outline-primary.btn-action:hover,
+.btn-outline-primary.btn-action:focus {
+    text-decoration: underline !important;
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+}
+
+/* Details button  solid secondary (Bootstrap gray) */
+.btn-outline-secondary.btn-action {
+    background-color: #444 !important;
+    border-color: #444 !important;
+    color: #fff !important;
+}
+
+.btn-outline-secondary.btn-action:hover,
+.btn-outline-secondary.btn-action:focus {
+    text-decoration: underline !important;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #fff !important;
+}
+
+/* Delete button  solid danger */
+.btn-outline-danger.btn-action {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+.btn-outline-danger.btn-action:hover,
+.btn-outline-danger.btn-action:focus {
+    text-decoration: underline !important;
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #fff !important;
+}
+.text-muted2{
+  color: #333;
 }
