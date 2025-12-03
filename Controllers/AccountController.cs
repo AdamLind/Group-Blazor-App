@@ -1,22 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
-using YourProjectName.Models; // Import your models
+using YourProjectName.Models; // keep this as-is if your viewmodels use this namespace
 
 public class AccountController : Controller
 {
     // GET: /Account/Login
-    // This simply displays the page
     public IActionResult Login()
     {
         return View();
     }
 
     // POST: /Account/Login
-    // This runs when the user clicks the "Log In" button
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Login(LoginViewModel model)
     {
-        // We aren't doing logic yet, so we will just redirect
-        // back to the home page for now so the form "works".
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        // Temporary: just redirect so the form "works"
         return RedirectToAction("Dashboard", "Books");
+    }
+
+    // GET: /Account/Register
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    // POST: /Account/Register
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Register(RegisterViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        // Later you’ll add real user creation here
+
+        // For now, after "registering", send them to Login
+        return RedirectToAction("Login");
     }
 }
