@@ -12,11 +12,10 @@ namespace MvcMovie.Data
         public static void Initialize(IServiceProvider serviceProvider)
         {
             using var context = new MVCBookContext(
-                serviceProvider.GetRequiredService<
-                    DbContextOptions<MVCBookContext>>());
+                serviceProvider.GetRequiredService<DbContextOptions<MVCBookContext>>());
 
-            // Make sure DB exists + migrations applied
-            context.Database.Migrate();
+            // Create database and schema if they do not exist
+            context.Database.EnsureCreated();
 
             // Skip if already seeded
             if (context.Books.Any())
