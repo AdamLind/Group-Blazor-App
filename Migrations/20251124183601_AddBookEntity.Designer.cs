@@ -10,7 +10,7 @@ using MvcMovie.Data;
 
 namespace MvcMovie.Migrations
 {
-    [DbContext(typeof(MvcMovieContext))]
+    [DbContext(typeof(MVCBookContext))]
     [Migration("20251124183601_AddBookEntity")]
     partial class AddBookEntity
     {

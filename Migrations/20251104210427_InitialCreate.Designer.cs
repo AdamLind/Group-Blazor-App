@@ -10,7 +10,7 @@ using MvcMovie.Data;
 
 namespace MvcMovie.Migrations
 {
-    [DbContext(typeof(MvcMovieContext))]
+    [DbContext(typeof(MVCBookContext))]
     [Migration("20251104210427_InitialCreate")]
     partial class InitialCreate
     {

@@ -19,10 +19,4 @@ public class AccountController : Controller
         // back to the home page for now so the form "works".
         return RedirectToAction("Dashboard", "Books");
     }
-
-    [HttpGet]
-    public IActionResult Register()
-    {
-        return View();
-    }
 }

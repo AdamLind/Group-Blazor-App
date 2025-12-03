@@ -11,9 +11,9 @@ namespace MvcMovie.Data
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using var context = new MvcMovieContext(
+            using var context = new MVCBookContext(
                 serviceProvider.GetRequiredService<
-                    DbContextOptions<MvcMovieContext>>());
+                    DbContextOptions<MVCBookContext>>());
 
             // Make sure DB exists + migrations applied
             context.Database.Migrate();
