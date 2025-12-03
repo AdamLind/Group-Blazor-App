@@ -8,11 +8,9 @@
 <hr />
 <div class="row">
     <div class="col-md-6">
-        <form asp-action="Edit">
+        <form asp-action="Edit" method="post">
             <input type="hidden" asp-for="Id" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <!-- reuse the same form groups as Create -->
 
             <div class="mb-3">
                 <label asp-for="Title" class="form-label"></label>
@@ -28,7 +26,7 @@
 
             <div class="mb-3">
                 <label asp-for="ReleaseDate" class="form-label"></label>
-                <input asp-for="ReleaseDate" class="form-control" />
+                <input asp-for="ReleaseDate" class="form-control" type="date" />
                 <span asp-validation-for="ReleaseDate" class="text-danger"></span>
             </div>
 
@@ -40,13 +38,13 @@
 
             <div class="mb-3">
                 <label asp-for="TotalPages" class="form-label"></label>
-                <input asp-for="TotalPages" class="form-control" />
+                <input asp-for="TotalPages" class="form-control" type="number" />
                 <span asp-validation-for="TotalPages" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
                 <label asp-for="CurrentPage" class="form-label"></label>
-                <input asp-for="CurrentPage" class="form-control" />
+                <input asp-for="CurrentPage" class="form-control" type="number" />
                 <span asp-validation-for="CurrentPage" class="text-danger"></span>
             </div>
 
@@ -62,7 +60,7 @@
 
             <div class="mb-3">
                 <label asp-for="Rating" class="form-label"></label>
-                <input asp-for="Rating" class="form-control" />
+                <input asp-for="Rating" class="form-control" type="number" min="1" max="5" />
                 <span asp-validation-for="Rating" class="text-danger"></span>
             </div>
 

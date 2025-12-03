@@ -9,7 +9,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+             aria-label="Main navigation">
             <div class="container-fluid">
 
                 <!-- UPDATED BRAND -->
@@ -26,16 +27,6 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
 
-                        <!-- MOVIES LINK 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-controller="Movies"
-                               asp-action="Index">
-                                Movies
-                            </a>
-                        </li>
-                        --> 
                         <!-- BOOKS LINK -->
                         <li class="nav-item">
                             <a class="nav-link text-dark"
@@ -47,30 +38,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light"
-                                asp-controller="Books"
-                                asp-action="Dashboard">
+                               asp-controller="Books"
+                               asp-action="Dashboard">
                                 Dashboard
                             </a>
                         </li>
-                        <!-- HOME 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-controller="Home"
-                               asp-action="Index">
-                                Home
-                            </a>
-                        </li>
-                        -->
-                        <!-- PRIVACY -->
-                        @* <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-controller="Home"
-                               asp-action="Privacy">
-                                Privacy
-                            </a>
-                        </li> *@
 
                     </ul>
                 </div>
@@ -79,14 +51,14 @@
     </header>
 
     <div class="container">
-        <main role="main" class="pb-3">
+        <main class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - Blazin' Books - 
+            &copy; 2025 - Blazin' Books -
             <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
