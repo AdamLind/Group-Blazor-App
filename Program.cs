@@ -3,9 +3,8 @@ using MvcMovie.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure EF Core DbContext with SQLite
-var connectionString = builder.Configuration.GetConnectionString("MVCBookContext")
-    ?? throw new InvalidOperationException("Connection string 'MVCBookContext' not found.");
+// Configure EF Core DbContext with SQLite (force explicit to avoid secrets overriding)
+var connectionString = "Data Source=MVCBook.db";
 
 builder.Services.AddDbContext<MVCBookContext>(options =>
     options.UseSqlite(connectionString));
