@@ -52,9 +52,9 @@
             <div class="form-group mb-3">
                 <label asp-for="Status" class="control-label"></label>
                 <select asp-for="Status" class="form-control">
-                    <option>To Read</option>
-                    <option>Reading</option>
-                    <option>Completed</option>
+                    <option value="To Read">To Read</option>
+                    <option value="Reading">Reading</option>
+                    <option value="Completed">Completed</option>
                 </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
