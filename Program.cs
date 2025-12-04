@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 
@@ -9,6 +10,16 @@ var connectionString = builder.Configuration.GetConnectionString("MVCBookContext
 
 builder.Services.AddDbContext<MVCBookContext>(options =>
     options.UseSqlite(connectionString));
+
+// Add Auth
+builder.Services.AddAuthorization();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<MVCBookContext>()
+    .AddDefaultTokenProviders();
+
+// Add this to make sure Controllers work
+builder.Services.AddControllersWithViews();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Delete Account";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger shadow">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">Delete Account</h3>
+                </div>
+                <div class="card-body text-center">
+                    <p class="lead">Are you sure you want to delete your account?</p>
+                    <p class="text-danger fw-bold">
+                        Warning: This will permanently delete your login and all your saved books. 
+                        This action cannot be undone.
+                    </p>
+                    
+                    <form asp-controller="Account" asp-action="Delete" method="post">
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                Yes, Delete My Account
+                            </button>
+                            <a asp-controller="Books" asp-action="Dashboard" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

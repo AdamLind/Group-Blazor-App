@@ -46,4 +46,6 @@ public class Book
     [Display(Name = "Completion %")]
     public double CompletionPercent =>
         TotalPages > 0 ? Math.Round((double)CurrentPage / TotalPages * 100, 1) : 0;
+
+    public string? OwnerId { get; set; }
 }
