@@ -4,12 +4,23 @@ using MvcMovie.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure EF Core DbContext with SQLite
-var connectionString = builder.Configuration.GetConnectionString("MVCBookContext")
-    ?? throw new InvalidOperationException("Connection string 'MVCBookContext' not found.");
+// Configure EF Core DbContext
+if (builder.Environment.IsProduction())
+{
+    // Production: Use SQL Server
+    builder.Services.AddDbContext<MVCBookContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("MVCBookContext"),
+        sqlServerOptionsAction: sqlOptions => sqlOptions.EnableRetryOnFailure()));
+}
+else
+{
+    // Development: Use SQLite
+    var connectionString = builder.Configuration.GetConnectionString("MVCBookContext")
+        ?? throw new InvalidOperationException("Connection string 'MVCBookContext' not found.");
 
-builder.Services.AddDbContext<MVCBookContext>(options =>
-    options.UseSqlite(connectionString));
+    builder.Services.AddDbContext<MVCBookContext>(options =>
+        options.UseSqlite(connectionString));
+}
 
 // Add Auth
 builder.Services.AddAuthorization();
