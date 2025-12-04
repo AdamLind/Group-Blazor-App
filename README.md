@@ -8,7 +8,7 @@
 
 ## Project Idea
 
-### 3. Book Reading Tracker
+### Book Reading Tracker
 * Target Audience: Readers who want to log books they’ve read or plan to read.
 
 #### Features

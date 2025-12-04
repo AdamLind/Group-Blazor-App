@@ -1,4 +1,4 @@
-namespace YourProjectName.Models // Replace 'YourProjectName' with your actual namespace
+namespace MvcMovie.Models
 {
     public class LoginViewModel
     {

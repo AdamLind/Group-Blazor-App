@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,12 +16,9 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
              aria-label="Main navigation">
             <div class="container-fluid">
-
-                <!-- UPDATED BRAND -->
                 <a class="navbar-brand" asp-area="" asp-controller="Books" asp-action="Index">
                     Blazin' Books
                 </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -26,25 +27,37 @@
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-
-                        <!-- BOOKS LINK -->
+                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-controller="Books"
-                               asp-action="Index">
-                                Books
-                            </a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light"
-                               asp-controller="Books"
-                               asp-action="Dashboard">
-                                Dashboard
-                            </a>
+                            <a class="nav-link text-light" asp-controller="Books" asp-action="Dashboard">Dashboard</a>
                         </li>
 
-                    </ul>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item ms-auto"> <a class="nav-link text-dark" href="#">Hello @User.Identity?.Name!</a>
+                            </li>
+                            <li class="nav-item">
+                                <form class="form-inline" asp-controller="Account" asp-action="Logout" method="post">
+                                    <button type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
+                                </form>
+                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-danger" asp-controller="Account" asp-action="Delete">Delete Account</a>
+                                </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item ms-auto">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+                        }
+                        </ul>
                 </div>
             </div>
         </nav>
@@ -58,8 +71,7 @@
 
     <footer class="border-top footer text-muted2">
         <div class="container">
-            &copy; 2025 - Blazin' Books -
-            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - Blazin' Books - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 

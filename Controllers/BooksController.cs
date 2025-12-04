@@ -4,18 +4,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims; // For finding the User ID
 using MvcMovie.Data;
 using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private readonly MVCBookContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public BooksController(MVCBookContext context)
+        public BooksController(MVCBookContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // --------------------------
@@ -28,7 +34,12 @@ namespace MvcMovie.Controllers
             string? titleSearch,
             int? releaseYear)
         {
-            var booksQuery = _context.Books.AsQueryable();
+
+            var currentUserId = _userManager.GetUserId(User);
+
+            var booksQuery = _context.Books
+                                     .Where(b => b.OwnerId == currentUserId)
+                                     .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(titleSearch))
                 booksQuery = booksQuery.Where(b =>
@@ -67,7 +78,11 @@ namespace MvcMovie.Controllers
         // --------------------------
         public async Task<IActionResult> Dashboard()
         {
-            var books = await _context.Books.ToListAsync();
+            var currentUserId = _userManager.GetUserId(User);
+
+            var books = await _context.Books
+                                      .Where(b => b.OwnerId == currentUserId)
+                                      .ToListAsync();
 
             if (!books.Any())
                 return View(new ReadingDashboardViewModel());
@@ -116,6 +131,14 @@ namespace MvcMovie.Controllers
             var book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
             if (book == null) return NotFound();
 
+            // --- SECURITY CHECK ---
+            var currentUserId = _userManager.GetUserId(User);
+            if (book.OwnerId != currentUserId) 
+            {
+                return Forbid();
+            }
+            // ----------------------
+
             return View(book);
         }
 
@@ -135,12 +158,15 @@ namespace MvcMovie.Controllers
             if (book.CurrentPage > book.TotalPages)
                 ModelState.AddModelError(nameof(book.CurrentPage), "Current page cannot exceed total pages.");
 
-            if (!ModelState.IsValid)
-                return View(book);
+            if (ModelState.IsValid)
+            {
+                book.OwnerId = _userManager.GetUserId(User);
 
-            _context.Add(book);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                _context.Add(book);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(book);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -149,6 +175,14 @@ namespace MvcMovie.Controllers
 
             var book = await _context.Books.FindAsync(id);
             if (book == null) return NotFound();
+
+            // --- SECURITY CHECK ---
+            var currentUserId = _userManager.GetUserId(User);
+            if (book.OwnerId != currentUserId) 
+            {
+                return Forbid();
+            }
+            // ----------------------
 
             return View(book);
         }
@@ -162,13 +196,23 @@ namespace MvcMovie.Controllers
             if (book.CurrentPage > book.TotalPages)
                 ModelState.AddModelError(nameof(book.CurrentPage), "Current page cannot exceed total pages.");
 
-            if (!ModelState.IsValid)
-                return View(book);
-
-            _context.Update(book);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var userId = _userManager.GetUserId(User);
+                    book.OwnerId = userId; 
+                    _context.Update(book);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BookExists(book.Id)) return NotFound();
+                    else throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(book);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -177,6 +221,14 @@ namespace MvcMovie.Controllers
 
             var book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
             if (book == null) return NotFound();
+
+            // --- SECURITY CHECK ---
+            var currentUserId = _userManager.GetUserId(User);
+            if (book.OwnerId != currentUserId) 
+            {
+                return Forbid();
+            }
+            // ----------------------
 
             return View(book);
         }

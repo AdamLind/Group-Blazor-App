@@ -1,4 +1,5 @@
-namespace YourProjectName.Models
+namespace MvcMovie.Models
+
 {
     public class RegisterViewModel
     {

@@ -1,4 +1,4 @@
-@model YourProjectName.Models.LoginViewModel
+@model MvcMovie.Models.LoginViewModel
 
 @{
     ViewData["Title"] = "Log In";
@@ -38,6 +38,7 @@
                         </div>
                         <a href="#" class="text-decoration-none small">Forgot password?</a>
                     </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
 
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary btn-login shadow-sm">
