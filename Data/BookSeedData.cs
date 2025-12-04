@@ -14,8 +14,8 @@ namespace MvcMovie.Data
             using var context = new MVCBookContext(
                 serviceProvider.GetRequiredService<DbContextOptions<MVCBookContext>>());
 
-            // Create database and schema if they do not exist
-            context.Database.EnsureCreated();
+            // Apply pending migrations to create the database and schema
+            context.Database.Migrate();
 
             // Skip if already seeded
             if (context.Books.Any())

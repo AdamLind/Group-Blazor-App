@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/7de86d14-bb83-4b51-bf2d-50fe70b33bf8/resourceGroups/BlazingBooksGroup/providers/Microsoft.Web/sites/BlazingBooks",
+    "appService.deploySubpath": "wwwroot"
+}

@@ -2,15 +2,26 @@ using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Configure EF Core DbContext with SQLite (force explicit to avoid secrets overriding)
-var connectionString = "Data Source=MVCBook.db";
-
-builder.Services.AddDbContext<MVCBookContext>(options =>
-    options.UseSqlite(connectionString));
+// ..
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var environmentName = builder.Environment.EnvironmentName;
+
+if (string.Equals(environmentName, "Production", StringComparison.OrdinalIgnoreCase))
+{
+    // Production: Use SQL Server
+    builder.Services.AddDbContext<MVCBookContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("MVCBookContext"),
+            sqlServerOptionsAction: sqlOptions => sqlOptions.EnableRetryOnFailure()));
+}
+else
+{
+    // Development: Use SQLite
+    builder.Services.AddDbContext<MVCBookContext>(options =>
+        options.UseSqlite(builder.Configuration.GetConnectionString("MVCBookContext")));
+}
 
 var app = builder.Build();
 
